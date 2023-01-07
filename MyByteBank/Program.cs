@@ -5,13 +5,19 @@ namespace MyByteBank {
 
         static void ShowMenu() {
             Console.Clear();
+            Console.WriteLine("========================");
+            Console.WriteLine("  Welcome to ByteBank   ");
+            Console.WriteLine("========================");
+                           
+            
             Console.WriteLine("1 - Inserir novo usuário");
             Console.WriteLine("2 - Deletar um usuário");
             Console.WriteLine("3 - Listar todas as contas registradas");
             Console.WriteLine("4 - Detalhes de um usuário");
             Console.WriteLine("5 - Quantia armazenada no banco");
             Console.WriteLine("6 - Manipular a conta");
-            Console.WriteLine("0 - Para sair do programa\n\n");
+            Console.WriteLine("0 - Para sair do programa\n");
+            Console.WriteLine("========================");
             Console.Write("Digite a opção desejada: ");
         }
 
@@ -21,7 +27,7 @@ namespace MyByteBank {
             Console.WriteLine("2 - Sacar saldo");
             Console.WriteLine("3 - Transferir Saldo");
             Console.WriteLine("4 - Voltar ao Menu Principal");
-            Console.WriteLine("0 - Para sair do programa\n\n");
+            Console.WriteLine("0 - Para Fazer Logout\n\n");
             Console.Write("Digite a opção desejada: ");
         }
 
@@ -241,7 +247,10 @@ namespace MyByteBank {
                             option2 = int.Parse(Console.ReadLine());
                             switch (option2) {
                                 case 0:
-                                    Console.WriteLine("Sair");
+                                    Console.Clear();
+                                    Console.WriteLine("----------------------------");
+                                    Console.WriteLine("Logout, Programa Finalizado");
+                                    Console.WriteLine("----------------------------");                                    
                                     break;
                                 case 1:
                                     Console.Clear();
