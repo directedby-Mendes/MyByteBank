@@ -11,4 +11,4 @@ Professor: HUGO RAFAEL
 - OPERAÇÃO DE SAQUE
 - OPERAÇÃO DE TRANSFERÊNCIA
 
-Video Yotube: https://youtu.be/Mzyx2y2sKeA
+Video Demonstração Youtube: https://youtu.be/Mzyx2y2sKeA
