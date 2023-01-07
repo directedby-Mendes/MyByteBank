@@ -10,3 +10,5 @@ Professor: HUGO RAFAEL
 - OPERAÇÃO DE DEPÓSITO
 - OPERAÇÃO DE SAQUE
 - OPERAÇÃO DE TRANSFERÊNCIA
+
+Video Yotube: https://youtu.be/Mzyx2y2sKeA
