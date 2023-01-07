@@ -3,7 +3,6 @@ namespace MyByteBank {
 
     public class Program {
 
-
         static void ShowMenu() {
             Console.Clear();
             Console.WriteLine("1 - Inserir novo usuário");
@@ -21,6 +20,7 @@ namespace MyByteBank {
             Console.WriteLine("1 - Depositar saldo");
             Console.WriteLine("2 - Sacar saldo");
             Console.WriteLine("3 - Transferir Saldo");
+            Console.WriteLine("4 - Voltar ao Menu Principal");
             Console.WriteLine("0 - Para sair do programa\n\n");
             Console.Write("Digite a opção desejada: ");
         }
@@ -108,8 +108,8 @@ namespace MyByteBank {
 
             //LISTAR TODAS AS CONTAS
             static void ListarTodasAsContas(List<string> cpfs, List<string> titulares, List<double> saldos) {
-                for (int i = 0; i < cpfs.Count; i++) {
-                    Console.WriteLine("Listagem de Contas\n");
+                Console.WriteLine("Listagem de Contas\n");
+                for (int i = 0; i < cpfs.Count; i++) {                  
                     Console.WriteLine($"CPF: {cpfs[i]} | Titulares: {titulares[i]} | Saldo: R$ {saldos[i]:F2}");
                 }
 
@@ -134,23 +134,25 @@ namespace MyByteBank {
 
             static void DepositarNaConta(List<string> cpfs, List<string> titulares, List<double> saldos) {
                 Console.Write("\nDigite o cpf: ");
-                string cpfParaApresentar = Console.ReadLine();
-                Console.WriteLine("\n ");
+                string cpfParaApresentar = Console.ReadLine();          
                 int indexParaConsultar = cpfs.FindIndex(cpf => cpf == cpfParaApresentar);
 
                 if (indexParaConsultar == -1) {
                     Console.WriteLine("Não foi possível encontrar esta conta");
                     Console.WriteLine("Confira o CPF e tente novamente.");
+                    Console.ReadKey();
+                    Manipular();
                 }
                 else {
-                    Console.Write("Digite a quantida do deposito: R$ ");
+                    Console.Write("Digite o Saldo a Depositar em sua conta: R$ ");
                     saldos[indexParaConsultar] += double.Parse(Console.ReadLine());
                     Console.WriteLine("Depósito realizado.");
                     Console.WriteLine("Valor hoje na conta é de: ");
                     int indexParaApresentar = cpfs.FindIndex(cpf => cpf == cpfParaApresentar);
-                    ApresentaConta(indexParaApresentar, cpfs, titulares, saldos);                          
-                    Console.WriteLine("Pressione Enter para continuar.");
+                    ApresentaConta(indexParaApresentar, cpfs, titulares, saldos);
                     Console.ReadKey();
+                    Console.WriteLine("Pressione Enter para continuar.");                    
+                    Manipular();
                 }
             }
 
@@ -183,14 +185,19 @@ namespace MyByteBank {
                             Console.WriteLine($"Valor do saldo atualizado: R$ {quantiaSaldoAtualizado}");
                             saldos[indexParaConsultar] = quantiaSaldoAtualizado;
                             Console.WriteLine("Saque realizado.");
+                            Console.ReadKey();
+                            Manipular();
                         }
                         else {
-                            Console.WriteLine($"Valor do saldo atualizado: R$ {quantiaSaldoAtualizado}");
                             Console.WriteLine("Saldo insuficiente");
+                            Console.WriteLine($"Valor que ficaria: R$ {quantiaSaldoAtualizado}");                            
                             Console.WriteLine($"Seu saldo atual: R$ {saldos[indexParaConsultar]:f2}.");
+                            Console.ReadKey();
+                            Manipular();
                         }
                         Console.WriteLine("Pressione Enter para continuar.");
                         Console.ReadKey();
+                        Manipular();
                     }
                 }
             }
@@ -230,30 +237,30 @@ namespace MyByteBank {
                         Console.Clear();
                         Manipular();
                         int option2;
-                       /* Console.Write("\nDigite sua senha para fazer Login neste terminal: ");
-                        string senhaParaApresentar = HidePass();
-                        int indexSenhaConsultar = senhas.FindIndex(senha => senha == senhaParaApresentar);
-                        */
                         do {
                             option2 = int.Parse(Console.ReadLine());
-                            Console.WriteLine("-----------------");
-
                             switch (option2) {
                                 case 0:
                                     Console.WriteLine("Sair");
                                     break;
                                 case 1:
+                                    Console.Clear();
                                     Console.WriteLine("Tela de Deposito");
-                                    DepositarNaConta(cpfs, titulares, senhas, saldos);
+                                    DepositarNaConta(cpfs, titulares, saldos);
                                     break;
                                 case 2:
+                                    Console.Clear();
                                     Console.WriteLine("Tela de Saque");
                                     SacarNaConta(cpfs, titulares, senhas, saldos);
-
                                     break;
                                 case 3:
+                                    Console.Clear();
                                     Console.WriteLine("Tela de Transferencia");
                                     //TransferirNaConta();
+                                    break;
+                                case 4:
+                                    ShowMenu();
+                                    return;   
                                     break;
                             }
 
