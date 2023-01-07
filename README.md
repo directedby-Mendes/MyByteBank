@@ -1,8 +1,8 @@
 #MyByteBank
 My name is Diego and i will be a full stack developer 🐱‍🏍
-imalearningplace
+#imãlearningplace
 
-##Projeto ByteBank|SharpCoders
+Projeto ByteBank|SharpCoders
 
 👨‍💻Implementação de funções em conta de banco. 
 Professor: HUGO RAFAEL
